@@ -7,15 +7,39 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-[100svh] bg-graphite text-paper"
+      className="relative bg-graphite text-paper"
       aria-labelledby="hero-heading"
     >
-      <div className="mx-auto grid min-h-[100svh] max-w-6xl lg:grid-cols-12 lg:px-8">
-        {/* Copy column */}
-        <div className="relative z-10 flex flex-col justify-end px-5 pb-16 pt-28 sm:pb-20 sm:pt-32 lg:col-span-5 lg:justify-center lg:px-0 lg:pb-24 lg:pt-28">
+      {/* Shared visual plane: full-bleed image on all breakpoints */}
+      <div className="relative min-h-[100svh]">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="./images/hero-mill.jpg"
+            alt="Industrial steel mill with molten metal pour and heavy rolling equipment"
+            className="h-full w-full object-cover object-[68%_center]"
+            width={1600}
+            height={1000}
+          />
+          <div className="absolute inset-0 bg-graphite/70 mix-blend-multiply" aria-hidden />
+          <div
+            className="absolute inset-0 bg-linear-to-t from-graphite via-graphite/75 to-graphite/35 lg:bg-linear-to-r lg:from-graphite lg:via-graphite/80 lg:to-graphite/25"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 opacity-45"
+            style={{
+              background:
+                'radial-gradient(ellipse 70% 55% at 75% 55%, color-mix(in srgb, var(--color-forge) 40%, transparent), transparent 70%)',
+            }}
+            aria-hidden
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-14 pt-28 sm:pb-16 sm:pt-32 lg:grid lg:grid-cols-12 lg:items-center lg:justify-normal lg:px-8 lg:pb-24 lg:pt-28">
           <motion.div
-            initial={reduce ? false : { opacity: 0, x: -24 }}
-            animate={{ opacity: 1, x: 0 }}
+            className="lg:col-span-5"
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="font-display text-sm font-medium tracking-[0.18em] text-forge uppercase">
@@ -27,7 +51,7 @@ export function Hero() {
             >
               Western Steel and Forgings Limited
             </h1>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-slate sm:text-lg">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-paper/75 sm:text-lg">
               {company.tagline}
             </p>
 
@@ -52,52 +76,19 @@ export function Hero() {
               </Link>
               <Link
                 to="/process"
-                className="inline-flex items-center border border-steel px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:border-forge hover:text-forge"
+                className="inline-flex items-center border border-steel/80 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:border-forge hover:text-forge"
               >
                 Production process
               </Link>
             </div>
           </motion.div>
-        </div>
 
-        {/* Image column */}
-        <motion.div
-          className="relative lg:col-span-7"
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.9, delay: 0.15 }}
-        >
-          <div className="relative h-[48vh] min-h-[280px] overflow-hidden sm:h-[56vh] lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[calc(100%+2rem)]">
-            <img
-              src="./images/hero-mill.jpg"
-              alt="Industrial steel mill with molten metal pour and heavy rolling equipment"
-              className="h-full w-full object-cover"
-              width={1600}
-              height={1000}
-            />
-            {/* Duotone / furnace heat overlay */}
-            <div
-              className="absolute inset-0 bg-graphite/55 mix-blend-multiply"
-              aria-hidden
-            />
-            <div
-              className="absolute inset-0 bg-linear-to-t from-graphite via-graphite/20 to-steel/30 lg:bg-linear-to-r lg:from-graphite lg:via-graphite/40 lg:to-transparent"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-0 opacity-40"
-              style={{
-                background:
-                  'radial-gradient(ellipse 60% 50% at 70% 60%, color-mix(in srgb, var(--color-forge) 45%, transparent), transparent 70%)',
-              }}
-              aria-hidden
-            />
-          </div>
-        </motion.div>
+          {/* Desktop-only spacer keeps asymmetric empty image field */}
+          <div className="hidden lg:col-span-7 lg:block" aria-hidden />
+        </div>
       </div>
 
-      {/* Snapshot stats */}
-      <div className="border-t border-steel/40 bg-graphite">
+      <div className="relative z-10 border-t border-steel/40 bg-graphite">
         <dl className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-y divide-steel/35 sm:grid-cols-4 sm:divide-y-0 lg:px-8">
           {snapshotStats.map((stat) => (
             <div key={stat.label} className="px-5 py-5 lg:px-6">
