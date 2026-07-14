@@ -6,8 +6,18 @@ export function Footer() {
     <footer className="border-t border-steel/50 bg-graphite text-paper">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
         <div>
-          <p className="font-display text-xl font-semibold tracking-tight">{company.shortName}</p>
-          <p className="mt-2 max-w-xs text-sm leading-relaxed text-slate">
+          <Link to="/" className="inline-flex items-center gap-3">
+            <img
+              src="./logo.jpg"
+              alt=""
+              width={48}
+              height={48}
+              className="h-12 w-12 object-contain"
+            />
+            <span className="font-display text-xl font-semibold tracking-tight">{company.shortName}</span>
+            <span className="sr-only">{company.name}</span>
+          </Link>
+          <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate">
             {company.name}
             <br />
             Integrated steel rolling and forging · Tema, Ghana

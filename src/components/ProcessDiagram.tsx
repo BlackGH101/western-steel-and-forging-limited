@@ -189,11 +189,7 @@ export function ProcessDiagram() {
   const n = processStages.length
 
   return (
-    <section
-      id="process"
-      className="border-t border-steel/40 bg-graphite text-paper"
-      aria-labelledby="process-heading"
-    >
+    <section className="bg-graphite text-paper" aria-labelledby="process-heading">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <SectionReveal>
           <div className="max-w-2xl">

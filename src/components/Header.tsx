@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { company, navLinks } from '../data/content'
 
-function scrollToId(id: string) {
-  const el = document.getElementById(id)
-  if (!el) return
-  const headerOffset = 72
-  const top = el.getBoundingClientRect().top + window.scrollY - headerOffset
-  window.scrollTo({ top, behavior: 'smooth' })
+function pathFor(id: string) {
+  return id === 'home' ? '/' : `/${id}`
 }
 
 export function Header() {
@@ -24,42 +20,54 @@ export function Header() {
 
   useEffect(() => {
     setOpen(false)
-    const id = location.pathname.replace(/^\//, '') || 'home'
-    // Allow layout to paint before scroll
-    requestAnimationFrame(() => scrollToId(id))
-  }, [location])
+  }, [location.pathname])
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
         scrolled || open
           ? 'border-steel/40 bg-graphite/95 backdrop-blur-sm'
-          : 'border-transparent bg-graphite/80'
+          : 'border-transparent bg-graphite/90'
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:h-[4.5rem] lg:px-8">
         <Link
           to="/"
-          className="group flex items-baseline gap-2 focus-visible:outline-offset-4"
-          onClick={() => scrollToId('home')}
+          className="group flex items-center gap-2.5 focus-visible:outline-offset-4"
+          onClick={() => setOpen(false)}
         >
-          <span className="font-display text-lg font-semibold tracking-tight text-paper lg:text-xl">
-            {company.shortName}
+          <img
+            src="./logo.jpg"
+            alt=""
+            width={40}
+            height={40}
+            className="h-9 w-9 object-contain lg:h-10 lg:w-10"
+          />
+          <span className="flex flex-col leading-tight">
+            <span className="font-display text-lg font-semibold tracking-tight text-paper lg:text-xl">
+              {company.shortName}
+            </span>
+            <span className="hidden font-sans text-[0.6875rem] tracking-wide text-slate sm:inline">
+              Western Steel &amp; Forgings
+            </span>
           </span>
-          <span className="hidden font-sans text-xs tracking-wide text-slate sm:inline">
-            Western Steel &amp; Forgings
-          </span>
+          <span className="sr-only">{company.name}</span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {navLinks.map((link) => (
-            <Link
+            <NavLink
               key={link.id}
-              to={`/${link.id === 'home' ? '' : link.id}`}
-              className="px-2.5 py-1.5 font-sans text-[0.8125rem] tracking-wide text-paper/75 transition-colors hover:text-forge"
+              to={pathFor(link.id)}
+              end={link.id === 'home'}
+              className={({ isActive }) =>
+                `px-2.5 py-1.5 font-sans text-[0.8125rem] tracking-wide transition-colors hover:text-forge ${
+                  isActive ? 'text-forge' : 'text-paper/75'
+                }`
+              }
             >
               {link.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
@@ -93,12 +101,18 @@ export function Header() {
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <li key={link.id}>
-                <Link
-                  to={`/${link.id === 'home' ? '' : link.id}`}
-                  className="block border-b border-steel/30 py-3 font-sans text-sm text-paper/90 hover:text-forge"
+                <NavLink
+                  to={pathFor(link.id)}
+                  end={link.id === 'home'}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `block border-b border-steel/30 py-3 font-sans text-sm transition-colors hover:text-forge ${
+                      isActive ? 'text-forge' : 'text-paper/90'
+                    }`
+                  }
                 >
                   {link.label}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>

@@ -6,7 +6,7 @@ Static corporate website for WSFL — Ghana’s integrated steel rolling and for
 
 - React + Vite + TypeScript
 - Tailwind CSS v4 (design tokens in `src/index.css` via `@theme`)
-- React Router `HashRouter` (static hosting without server-side routes)
+- React Router `HashRouter` — multi-page routes (static hosting without server-side routes)
 - Framer Motion (hero entrance, section reveals, process scroll-sync)
 
 ## Commands

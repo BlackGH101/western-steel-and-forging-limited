@@ -3,11 +3,7 @@ import { SectionReveal } from './SectionReveal'
 
 export function Markets() {
   return (
-    <section
-      id="markets"
-      className="border-t border-slate/30 bg-paper"
-      aria-labelledby="markets-heading"
-    >
+    <section className="bg-paper" aria-labelledby="markets-heading">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <SectionReveal>
           <div className="grid gap-12 lg:grid-cols-12">

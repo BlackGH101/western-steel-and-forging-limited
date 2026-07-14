@@ -7,7 +7,6 @@ export function Hero() {
 
   return (
     <section
-      id="home"
       className="relative min-h-[100svh] bg-graphite text-paper"
       aria-labelledby="hero-heading"
     >

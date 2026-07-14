@@ -6,11 +6,7 @@ const mapEmbedSrc =
 
 export function Contact() {
   return (
-    <section
-      id="contact"
-      className="border-t border-slate/30 bg-paper"
-      aria-labelledby="contact-heading"
-    >
+    <section className="bg-paper" aria-labelledby="contact-heading">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <SectionReveal>
           <div className="grid gap-12 lg:grid-cols-12">

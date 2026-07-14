@@ -1,37 +1,27 @@
-import { HashRouter, Route, Routes } from 'react-router-dom'
-import { About } from './components/About'
-import { Contact } from './components/Contact'
-import { Footer } from './components/Footer'
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { Leadership } from './components/Leadership'
-import { Markets } from './components/Markets'
-import { ProcessDiagram } from './components/ProcessDiagram'
-import { Products } from './components/Products'
-
-function HomePage() {
-  return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Products />
-        <ProcessDiagram />
-        <Markets />
-        <Leadership />
-        <Contact />
-      </main>
-      <Footer />
-    </>
-  )
-}
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { Layout } from './components/Layout'
+import { AboutPage } from './pages/AboutPage'
+import { ContactPage } from './pages/ContactPage'
+import { HomePage } from './pages/HomePage'
+import { LeadershipPage } from './pages/LeadershipPage'
+import { MarketsPage } from './pages/MarketsPage'
+import { ProcessPage } from './pages/ProcessPage'
+import { ProductsPage } from './pages/ProductsPage'
 
 export default function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/*" element={<HomePage />} />
+        <Route element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="products" element={<ProductsPage />} />
+          <Route path="process" element={<ProcessPage />} />
+          <Route path="markets" element={<MarketsPage />} />
+          <Route path="leadership" element={<LeadershipPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
       </Routes>
     </HashRouter>
   )

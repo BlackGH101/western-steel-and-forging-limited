@@ -3,7 +3,7 @@ import { SectionReveal } from './SectionReveal'
 
 export function About() {
   return (
-    <section id="about" className="bg-paper" aria-labelledby="about-heading">
+    <section className="bg-paper" aria-labelledby="about-heading">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <SectionReveal>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">

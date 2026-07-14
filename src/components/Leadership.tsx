@@ -17,11 +17,7 @@ const boardBackgrounds = [
 
 export function Leadership() {
   return (
-    <section
-      id="leadership"
-      className="border-t border-slate/30 bg-paper"
-      aria-labelledby="leadership-heading"
-    >
+    <section className="bg-paper" aria-labelledby="leadership-heading">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <SectionReveal>
           <div className="max-w-2xl">

@@ -3,7 +3,7 @@ import { SectionReveal } from './SectionReveal'
 
 export function Products() {
   return (
-    <section id="products" className="border-t border-slate/30 bg-paper" aria-labelledby="products-heading">
+    <section className="bg-paper" aria-labelledby="products-heading">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <SectionReveal>
           <div className="max-w-2xl">
