@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-graphite: #1c2024;
+  --color-steel: #40566e;
+  --color-paper: #f3f1ec;
+  --color-forge: #d6601e;
+  --color-slate: #8a94a0;
+
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --spacing-section: 6rem;
+  --spacing-section-lg: 8rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-paper font-sans text-graphite antialiased;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-forge) 35%, transparent);
+    color: var(--color-graphite);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-forge);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .rule-h {
+    @apply border-t border-slate/40;
+  }
+
+  .rule-v {
+    @apply border-l border-slate/40;
+  }
+
+  .stat-mono {
+    @apply font-mono tabular-nums tracking-tight;
+  }
+}
