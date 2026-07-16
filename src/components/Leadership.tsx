@@ -30,11 +30,6 @@ export function Leadership() {
             >
               Five-member Board of Directors
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate">
-              Presented as a text roster — no placeholder headshots. Where public biographies for
-              every seat are not listed here, the board’s disciplines are recorded instead of
-              inventing names.
-            </p>
           </div>
         </SectionReveal>
 
