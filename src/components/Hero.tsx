@@ -26,32 +26,45 @@ export function Hero() {
       className="relative overflow-hidden bg-graphite text-paper"
       aria-labelledby="hero-heading"
     >
+      <motion.div
+        className="absolute inset-0"
+        aria-hidden
+        initial={reduce ? false : { scale: 1.06 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.2, ease }}
+      >
+        <img
+          src={siteImages.hero.src}
+          alt=""
+          className="h-full w-full object-cover object-center"
+          width={1600}
+          height={1067}
+        />
+      </motion.div>
+
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden
         style={{
           background:
-            'linear-gradient(165deg, #0a1f33 0%, #0f2a42 48%, #0a1f33 100%), radial-gradient(ellipse 55% 45% at 78% 28%, color-mix(in srgb, var(--color-forge) 14%, transparent), transparent 70%)',
+            'linear-gradient(105deg, color-mix(in srgb, var(--color-graphite) 92%, transparent) 0%, color-mix(in srgb, var(--color-graphite) 78%, transparent) 42%, color-mix(in srgb, var(--color-graphite) 45%, transparent) 72%, color-mix(in srgb, var(--color-graphite) 55%, transparent) 100%)',
         }}
       />
 
-      <motion.div
-        className="pointer-events-none absolute inset-0 opacity-[0.045]"
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
         aria-hidden
         style={{
           backgroundImage:
             'linear-gradient(to right, #C9A24B 1px, transparent 1px), linear-gradient(to bottom, #C9A24B 1px, transparent 1px)',
           backgroundSize: '72px 72px',
-          maskImage: 'radial-gradient(ellipse 65% 55% at 50% 40%, black, transparent)',
+          maskImage: 'radial-gradient(ellipse 65% 55% at 40% 40%, black, transparent)',
         }}
-        initial={reduce ? false : { opacity: 0 }}
-        animate={{ opacity: 0.045 }}
-        transition={{ duration: 1.2, ease }}
       />
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-24 pt-28 lg:grid-cols-12 lg:gap-10 lg:px-8 lg:pb-28 lg:pt-32">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl items-center px-5 pb-24 pt-28 lg:px-8 lg:pb-28 lg:pt-32">
         <motion.div
-          className="lg:col-span-6"
+          className="max-w-xl lg:max-w-2xl"
           variants={container}
           initial={reduce ? false : 'hidden'}
           animate="show"
@@ -108,43 +121,9 @@ export function Hero() {
             </div>
           </motion.dl>
         </motion.div>
-
-        <motion.div
-          className="relative lg:col-span-6"
-          initial={reduce ? false : { opacity: 0, x: 28, scale: 0.97 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15, ease }}
-        >
-          <div className="media-frame relative overflow-hidden border border-forge/30" style={{ borderRadius: 3 }}>
-            <motion.img
-              src={siteImages.hero.src}
-              alt={siteImages.hero.alt}
-              className="mx-auto block h-auto w-full max-w-lg lg:max-w-none"
-              width={1200}
-              height={900}
-              initial={reduce ? false : { scale: 1.08 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 1.1, ease }}
-            />
-            <div
-              className="absolute inset-0 bg-linear-to-tr from-graphite/65 via-graphite/15 to-transparent"
-              aria-hidden
-            />
-            <motion.div
-              className="absolute bottom-0 left-0 right-0 border-t border-forge/30 bg-graphite/90 px-4 py-3 sm:right-auto sm:max-w-xs"
-              initial={reduce ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.55, ease }}
-            >
-              <p className="text-[0.65rem] uppercase tracking-[0.12em] text-slate">Plant capacity</p>
-              <p className="mt-1 font-display text-sm font-medium text-paper">
-                Rolling mill up to{' '}
-                <span className="stat-mono text-forge">8,000</span> t/mo
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
+
+      <span className="sr-only">{siteImages.hero.alt}</span>
 
       <motion.div
         className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex"

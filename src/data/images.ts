@@ -4,8 +4,8 @@
  */
 export const siteImages = {
   hero: {
-    src: './images/hero-mill.jpg',
-    alt: 'Industrial steel mill with molten metal pour and heavy rolling equipment',
+    src: './images/steel-structure.jpg',
+    alt: 'Heavy steel structural members in an industrial setting',
   },
   homeAbout: {
     src: './images/furnace.jpg',
@@ -28,8 +28,8 @@ export const siteImages = {
     alt: 'Arc welding on a steel construction site with bright sparks',
   },
   productDrums: {
-    src: './images/steel-structure.jpg',
-    alt: 'Heavy steel structural members in an industrial setting',
+    src: './images/hero-mill.jpg',
+    alt: 'Industrial steel mill with molten metal pour and heavy rolling equipment',
   },
   productPlanned: {
     src: './images/plant-floor.jpg',
