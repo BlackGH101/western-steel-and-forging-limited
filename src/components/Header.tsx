@@ -41,7 +41,7 @@ export function Header() {
           onClick={() => setOpen(false)}
         >
           <img
-            src="./logo.jpg"
+            src="/logo.jpg"
             alt=""
             width={40}
             height={40}

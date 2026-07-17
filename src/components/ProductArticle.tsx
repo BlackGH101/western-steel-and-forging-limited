@@ -81,7 +81,7 @@ export function ProductArticle() {
                 <img
                   src={product.image}
                   alt={product.imageAlt}
-                  className="mx-auto block h-auto w-full max-w-md"
+                  className="block h-auto w-full"
                   width={800}
                   height={600}
                 />
@@ -147,14 +147,24 @@ export function ProductArticle() {
               <StaggerItem key={item.slug}>
                 <Link
                   to={`/products/${item.slug}`}
-                  className="surface-card block h-full p-5 transition-colors"
+                  className="surface-card block h-full overflow-hidden p-0 transition-colors"
                 >
-                  <p className="font-display text-base font-semibold text-graphite">{item.name}</p>
-                  <p className="stat-mono mt-2 text-xs text-forge">{item.spec}</p>
-                  <span className="btn-text mt-4">
-                    Read article
-                    <IconArrow />
-                  </span>
+                  <img
+                    src={item.image}
+                    alt={item.imageAlt}
+                    className="mx-auto block h-auto w-full max-w-[220px]"
+                    width={440}
+                    height={280}
+                    loading="lazy"
+                  />
+                  <div className="p-5">
+                    <p className="font-display text-base font-semibold text-graphite">{item.name}</p>
+                    <p className="stat-mono mt-2 text-xs text-forge">{item.spec}</p>
+                    <span className="btn-text mt-4">
+                      Read article
+                      <IconArrow />
+                    </span>
+                  </div>
                 </Link>
               </StaggerItem>
             ))}

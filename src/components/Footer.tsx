@@ -20,7 +20,7 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-3">
               <img
-                src="./logo.jpg"
+                src="/logo.jpg"
                 alt=""
                 width={44}
                 height={44}
