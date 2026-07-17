@@ -1,3 +1,4 @@
+import { siteImages } from '../data/images'
 import { SectionReveal } from './SectionReveal'
 
 const namedLeadership = [
@@ -18,33 +19,44 @@ const boardBackgrounds = [
 export function Leadership() {
   return (
     <section className="bg-paper" aria-labelledby="leadership-heading">
-      <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
+      <div className="mx-auto max-w-6xl section-pad">
         <SectionReveal>
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-steel">
-              Leadership
-            </p>
-            <h2
+            <p className="eyebrow">Leadership</p>
+            <h1
               id="leadership-heading"
-              className="mt-3 font-display text-3xl font-semibold tracking-tight text-graphite sm:text-4xl"
+              className="heading-display mt-3 text-3xl text-graphite sm:text-4xl lg:text-5xl"
             >
               Five-member Board of Directors
-            </h2>
+            </h1>
           </div>
         </SectionReveal>
 
+        <SectionReveal className="mt-10">
+          <figure className="overflow-hidden border border-graphite/12" style={{ borderRadius: 3 }}>
+            <img
+              src={siteImages.leadership.src}
+              alt={siteImages.leadership.alt}
+              className="mx-auto block h-auto w-full max-w-3xl"
+              width={1100}
+              height={500}
+            />
+            <figcaption className="border-t border-graphite/10 bg-white px-4 py-3 text-xs tracking-wide text-slate">
+              Collaboration across operations, governance, and commercial leadership
+            </figcaption>
+          </figure>
+        </SectionReveal>
+
         <SectionReveal className="mt-12">
-          <ul className="border border-slate/35">
+          <ul className="overflow-hidden border border-graphite/12 bg-white" style={{ borderRadius: 3 }}>
             {namedLeadership.map((member) => (
               <li
                 key={member.name}
-                className="grid gap-2 border-b border-slate/35 px-5 py-8 sm:grid-cols-12 sm:items-baseline sm:gap-6 sm:px-6"
+                className="grid gap-2 border-b border-graphite/10 px-6 py-8 sm:grid-cols-12 sm:items-baseline sm:gap-6"
               >
                 <span className="stat-mono text-xs text-forge sm:col-span-1">01</span>
                 <div className="sm:col-span-4">
-                  <h3 className="font-display text-2xl font-semibold tracking-tight text-graphite">
-                    {member.name}
-                  </h3>
+                  <h2 className="heading-display text-2xl text-graphite">{member.name}</h2>
                   <p className="mt-1 text-sm text-steel">{member.role}</p>
                 </div>
                 <p className="text-sm leading-relaxed text-slate sm:col-span-7">{member.note}</p>
@@ -52,22 +64,22 @@ export function Leadership() {
             ))}
           </ul>
 
-          <div className="mt-8 border border-slate/35">
-            <div className="border-b border-slate/35 px-5 py-4 sm:px-6">
-              <h3 className="text-xs font-medium uppercase tracking-[0.14em] text-slate">
-                Remaining board seats — by discipline
-              </h3>
+          <div className="mt-5 overflow-hidden border border-graphite/12 bg-white" style={{ borderRadius: 3 }}>
+            <div className="border-b border-graphite/10 px-6 py-4">
+              <h2 className="text-[0.65rem] font-medium uppercase tracking-[0.12em] text-slate">
+                Remaining board seats by discipline
+              </h2>
             </div>
-            <ul className="divide-y divide-slate/30">
+            <ul className="divide-y divide-graphite/8">
               {boardBackgrounds.map((seat, i) => (
                 <li
                   key={seat.discipline}
-                  className="grid gap-1 px-5 py-5 transition-colors hover:bg-steel/5 sm:grid-cols-12 sm:items-baseline sm:gap-6 sm:px-6"
+                  className="grid gap-1 px-6 py-5 transition-colors duration-320 hover:bg-mist/50 sm:grid-cols-12 sm:items-baseline sm:gap-6"
                 >
                   <span className="stat-mono text-xs text-forge sm:col-span-1">
                     {String(i + 2).padStart(2, '0')}
                   </span>
-                  <p className="font-display text-base font-semibold tracking-tight text-graphite sm:col-span-4">
+                  <p className="heading-display text-base text-graphite sm:col-span-4">
                     {seat.discipline}
                   </p>
                   <p className="text-sm text-slate sm:col-span-7">{seat.focus}</p>

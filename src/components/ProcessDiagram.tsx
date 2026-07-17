@@ -7,6 +7,7 @@ import {
 } from 'framer-motion'
 import { useRef } from 'react'
 import { processStages, supportingFacilities } from '../data/content'
+import { siteImages } from '../data/images'
 import { SectionReveal } from './SectionReveal'
 
 function StageCard({
@@ -31,14 +32,14 @@ function StageCard({
   const borderColor = useTransform(
     glow,
     [0, 1],
-    ['rgba(138, 148, 160, 0.45)', 'rgba(214, 96, 30, 1)'],
+    ['rgba(122, 132, 144, 0.45)', 'rgba(201, 162, 75, 1)'],
   )
   const accentOpacity = useTransform(glow, [0, 1], [0.2, 1])
   const capacityOpacity = useTransform(glow, [0.35, 1], [0, 1])
 
   if (reduce) {
     return (
-      <article className="relative flex min-w-0 flex-1 flex-col border border-forge/80 bg-graphite p-5">
+      <article className="relative flex min-w-0 flex-1 flex-col border border-forge/80 bg-graphite p-5" style={{ borderRadius: 3 }}>
         <span className="stat-mono text-xs text-forge">
           {String(index + 1).padStart(2, '0')}
         </span>
@@ -53,8 +54,8 @@ function StageCard({
 
   return (
     <motion.article
-      style={{ borderColor }}
-      className="relative flex min-w-0 flex-1 flex-col border bg-graphite/90 p-5"
+      style={{ borderColor, borderRadius: 3 }}
+      className="relative flex min-w-0 flex-1 flex-col overflow-hidden border bg-graphite/90 p-5"
     >
       <motion.span style={{ opacity: accentOpacity }} className="stat-mono text-xs text-forge">
         {String(index + 1).padStart(2, '0')}
@@ -130,7 +131,7 @@ function MobileStage({
   const borderColor = useTransform(
     glow,
     [0, 1],
-    ['rgba(64, 86, 110, 0.7)', 'rgba(214, 96, 30, 1)'],
+    ['rgba(61, 81, 102, 0.7)', 'rgba(201, 162, 75, 1)'],
   )
   const lineHeight = useTransform(progress, [rangeStart, rangeEnd], ['0%', '100%'])
   const capacityOpacity = useTransform(glow, [0.3, 1], [0, 1])
@@ -189,25 +190,38 @@ export function ProcessDiagram() {
   const n = processStages.length
 
   return (
-    <section className="bg-graphite text-paper" aria-labelledby="process-heading">
-      <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
+    <section className="min-h-screen bg-graphite text-paper" aria-labelledby="process-heading">
+      <div className="mx-auto max-w-6xl section-pad">
         <SectionReveal>
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.14em] text-forge">
-              Production process
-            </p>
-            <h2
+            <p className="eyebrow text-forge">Production process</p>
+            <h1
               id="process-heading"
-              className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl"
+              className="heading-display mt-3 text-3xl text-paper sm:text-4xl lg:text-5xl"
             >
               Scrap in. Finished steel out.
-            </h2>
+            </h1>
             <p className="mt-4 text-base leading-relaxed text-slate">
-              A sequential physical line — from induction melt through reheating, rolling,
-              cross-roll, and forging. Scroll through the stages; each lights in forge heat with
+              A sequential physical line: from induction melt through reheating, rolling,
+              cross-roll, and forging. Scroll through the stages; each lights as you scroll with
               its rated monthly capacity.
             </p>
           </div>
+        </SectionReveal>
+
+        <SectionReveal className="mt-12">
+          <figure className="overflow-hidden border border-forge/25" style={{ borderRadius: 3 }}>
+            <img
+              src={siteImages.process.src}
+              alt={siteImages.process.alt}
+              className="mx-auto block h-auto w-full max-w-3xl"
+              width={1100}
+              height={500}
+            />
+            <figcaption className="border-t border-forge/20 px-4 py-3 text-xs tracking-wide text-slate">
+              Production stages from melt to finished product
+            </figcaption>
+          </figure>
         </SectionReveal>
 
         <div ref={trackRef} className="mt-16">
@@ -267,9 +281,13 @@ export function ProcessDiagram() {
           <h3 className="font-display text-lg font-semibold tracking-tight">
             Supporting facilities
           </h3>
-          <ul className="mt-6 grid gap-px bg-steel/40 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {supportingFacilities.map((f) => (
-              <li key={f.name} className="bg-graphite px-5 py-5">
+              <li
+                key={f.name}
+                className="border border-forge/25 bg-transparent px-5 py-5"
+                style={{ borderRadius: 3 }}
+              >
                 <p className="text-sm font-medium text-paper">{f.name}</p>
                 <p className="stat-mono mt-2 text-sm text-forge">{f.capacity}</p>
               </li>

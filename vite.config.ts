@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Relative base helps static hosts (InfinityFree, etc.)
-  base: './',
+  // Root deploy on Hostinger (public_html)
+  base: '/',
   plugins: [react(), tailwindcss()],
 })

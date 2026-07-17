@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Confidential working files — never deploy
+_private/
+confi.pdf
+confi-extract.txt
+*.local.pdf
+
+# Confidential working files
+_private/
+confi-extract.txt
+*.local.pdf
+

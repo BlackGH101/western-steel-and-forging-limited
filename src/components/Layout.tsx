@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { PageTransition } from './PageTransition'
 
 export function ScrollToTop() {
   const { pathname } = useLocation()
@@ -18,7 +19,7 @@ export function Layout() {
     <>
       <ScrollToTop />
       <Header />
-      <Outlet />
+      <PageTransition />
       <Footer />
     </>
   )

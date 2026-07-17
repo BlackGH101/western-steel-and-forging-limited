@@ -11,58 +11,111 @@ export const navLinks = [
 export const company = {
   name: 'Western Steel and Forgings Limited',
   shortName: 'WSFL',
+  slogan: 'From scrap to strength.',
   tagline: "Ghana's integrated steel rolling and forging plant, since 2004",
   founded: 2004,
   location: 'Tema, Ghana',
   email: 'info@wsfl.com.gh',
+  phone: '',
   address: {
     line1: 'Plot No. F, Kpone Industrial Area',
     line2: 'near West Globe Pone',
     line3: 'P.O. Box AN 6581, Accra-North',
     country: 'Ghana',
   },
+  aboutShort:
+    'WSFL converts scrap metal into finished steel for Ghana’s gold mines and construction sector, an integrated rolling and forging plant in Tema, built to deliver quality and volume that casting alone could not sustain.',
 }
 
 export const snapshotStats = [
-  { label: 'Founded', value: '2004' },
-  { label: 'Location', value: 'Tema, Ghana' },
-  { label: 'Core products', value: '5' },
-  { label: 'Primary market', value: 'W. Africa mining' },
+  { label: 'Founded', value: '2004', numeric: 2004 },
+  { label: 'Location', value: 'Tema, Ghana', numeric: null },
+  { label: 'Core products', value: '5', numeric: 5 },
+  { label: 'Primary market', value: 'W. Africa mining', numeric: null },
 ] as const
 
-export const products = [
-  {
-    name: 'Forged Steel Grinding Balls',
+export const homeStats = [
+  { label: 'Years in operation', value: 22, suffix: '+' },
+  { label: 'Product lines', value: 5, suffix: '' },
+  { label: 'Mining share of customers', value: 60, suffix: '%' },
+  { label: 'Plant location', value: 1, suffix: '', display: 'Tema' },
+] as const
+
+export const missionVision = {
+  mission: {
+    title: 'Mission',
     description:
-      'Produced for gold mines across Ghana and the sub-region, oriented to displace imported forged balls with locally manufactured product of matching quality and shorter lead times.',
-    spec: '40mm – 140mm',
+      'Deliver innovative, reliable, and customer-focused solutions that create lasting value while maintaining the highest standards of professionalism, integrity, and excellence.',
+  },
+  vision: {
+    title: 'Vision',
+    description:
+      'To become a trusted industry leader recognized for innovation, quality service, sustainable growth, and creating meaningful impact across every community we serve.',
+  },
+} as const
+
+export const coreValues = [
+  {
+    title: 'Integrity',
+    description: 'We uphold honesty, transparency, and ethical business practices.',
   },
   {
-    name: 'Construction Rods',
-    description:
-      'Reinforcement rods for Ghana’s building sector — introduced to diversify output, lower unit production cost, and close a gap in local supply.',
-    spec: '8mm – 25mm',
+    title: 'Excellence',
+    description: 'We strive for exceptional quality in everything we do.',
   },
   {
-    name: 'Industrial Oxygen',
-    description:
-      'Produced for on-site steel cutting and sold to industrial and hospital buyers beyond the plant gate.',
-    spec: '~2,000 cyl/mo · target 6,000 cyl/mo',
+    title: 'Innovation',
+    description: 'We embrace creativity and continuous improvement.',
   },
   {
-    name: 'Steel Drums (205-litre)',
-    description:
-      'Packaging for steel grinding balls, sized to WSFL’s own outbound needs rather than as a primary merchant product.',
-    spec: 'Target ~7,500 barrels/annum',
+    title: 'Customer Focus',
+    description: 'Our clients are at the center of every decision.',
   },
   {
-    name: 'Stainless Steel Forgings & TMT Bars',
-    description:
-      'Planned post-expansion line: high-tensile reinforcement bars and stainless products aimed at European export markets.',
-    spec: 'Post-expansion · export-oriented',
-    planned: true,
+    title: 'Teamwork',
+    description: 'We believe collaboration drives success.',
+  },
+  {
+    title: 'Accountability',
+    description: 'We take ownership of our actions and commitments.',
   },
 ] as const
+
+export const whyChooseUs = [
+  {
+    title: 'Experience',
+    description:
+      'Operating since 2004 as an integrated rolling and forging plant serving Ghana and the sub-region.',
+  },
+  {
+    title: 'Professional team',
+    description:
+      'Engineering, production, and commercial teams oriented to mining and construction specifications.',
+  },
+  {
+    title: 'Reliability',
+    description:
+      'Local manufacture of forged grinding balls and rods, with shorter lead times than import-dependent supply.',
+  },
+  {
+    title: 'Innovation',
+    description:
+      'Modern induction, rolling, cross-roll, and forging lines converting scrap into finished steel.',
+  },
+  {
+    title: 'Customer satisfaction',
+    description:
+      'Long-standing relationships with major gold producers and construction-rod distributors.',
+  },
+  {
+    title: 'Quality assurance',
+    description:
+      'Specification-led products sized and forged for mining attrition and structural reinforcement.',
+  },
+] as const
+
+export { getProductBySlug, products } from './products'
+export type { ProductArticle } from './products'
 
 export const processStages = [
   {
@@ -99,7 +152,7 @@ export const processStages = [
     id: 'finished',
     title: 'Finished Products',
     detail: 'Grinding balls and construction rods leave the plant for mines and building sites.',
-    capacity: 'Scrap → steel',
+    capacity: 'Scrap to steel',
   },
 ] as const
 
@@ -107,12 +160,12 @@ export const supportingFacilities = [
   { name: 'Drum Plant', capacity: '15,000 drums/mo' },
   { name: 'Oxygen Plant', capacity: 'Sanghi Oxygen, India' },
   { name: 'Weighbridge', capacity: '80-ton' },
-  { name: 'Site services', capacity: 'Scrap yard · clinic · admin block' },
+  { name: 'Site services', capacity: 'Scrap yard, clinic, admin block' },
 ] as const
 
 export const miningClients = [
-  'AngloGold Ashanti — Obuasi, Ayanfuri, Bibiani',
-  'Goldfields — Tarkwa',
+  'AngloGold Ashanti (Obuasi, Ayanfuri, Bibiani)',
+  'Goldfields (Tarkwa)',
   'Resolute Amansie Resources Ltd',
   'Abosso Goldfields Ltd',
   'Bogoso Goldfields Ltd',
@@ -120,3 +173,25 @@ export const miningClients = [
 ] as const
 
 export const constructionClients = ['B5 Ltd (market leader among rod distributors)'] as const
+
+/** Public trust statements, not attributed to named individuals. */
+export const trustHighlights = [
+  {
+    quote:
+      'Local forged grinding balls and construction rods, produced to mining and building specifications from an integrated Tema plant.',
+    role: 'What we deliver',
+    company: 'Mining and construction supply',
+  },
+  {
+    quote:
+      'Roughly sixty percent of our customer base is in the mining sector, with relationships built on consistent offtake and measurable product sizes.',
+    role: 'Market focus',
+    company: 'West African gold producers',
+  },
+  {
+    quote:
+      'Scrap converted into finished steel: a circular operating model at the heart of the furnace hall, not a marketing line.',
+    role: 'How we work',
+    company: 'Circular steel production',
+  },
+] as const

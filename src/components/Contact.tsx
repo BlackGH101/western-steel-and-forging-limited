@@ -1,4 +1,5 @@
 import { company } from '../data/content'
+import { IconArrow } from './Icons'
 import { SectionReveal } from './SectionReveal'
 
 const mapEmbedSrc =
@@ -7,17 +8,17 @@ const mapEmbedSrc =
 export function Contact() {
   return (
     <section className="bg-paper" aria-labelledby="contact-heading">
-      <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
+      <div className="mx-auto max-w-6xl section-pad">
         <SectionReveal>
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-steel">Contact</p>
-              <h2
+              <p className="eyebrow">Contact</p>
+              <h1
                 id="contact-heading"
-                className="mt-3 font-display text-3xl font-semibold tracking-tight text-graphite sm:text-4xl"
+                className="heading-display mt-3 text-3xl text-graphite sm:text-4xl lg:text-5xl"
               >
                 Registered office
-              </h2>
+              </h1>
               <address className="mt-6 not-italic text-base leading-relaxed text-graphite/85">
                 {company.address.line1}
                 <br />
@@ -28,31 +29,31 @@ export function Contact() {
                 {company.address.country}
               </address>
 
-              <p className="mt-8 text-sm text-slate">
-                For commercial enquiries, offtake, or visits to the Tema plant, write to the
-                address above or use the mail link below. This site does not collect form
-                submissions.
+              <p className="mt-8 text-sm leading-relaxed text-slate">
+                For commercial enquiries, offtake, or visits to the Tema plant, write to the address
+                above or use the mail link below. This site does not collect form submissions.
               </p>
 
               <a
-                href={`mailto:${company.email}?subject=Enquiry%20—%20Western%20Steel%20and%20Forgings%20Limited`}
-                className="mt-8 inline-flex items-center border border-forge bg-forge px-6 py-3 text-sm font-medium text-graphite transition-colors hover:bg-transparent hover:text-forge"
+                href={`mailto:${company.email}?subject=Enquiry%20-%20Western%20Steel%20and%20Forgings%20Limited`}
+                className="btn-primary mt-8"
               >
                 Email {company.email}
+                <IconArrow className="ml-2 h-4 w-4" />
               </a>
             </div>
 
             <div className="lg:col-span-7">
-              <div className="overflow-hidden border border-slate/35">
+              <div className="overflow-hidden border border-graphite/12 bg-white" style={{ borderRadius: 3 }}>
                 <iframe
                   title="Map of Kpone Industrial Area, Tema, Ghana"
                   src={mapEmbedSrc}
-                  className="aspect-[4/3] h-full min-h-[280px] w-full grayscale contrast-110 lg:aspect-auto lg:min-h-[360px]"
+                  className="aspect-[4/3] h-full min-h-[280px] w-full lg:aspect-auto lg:min-h-[360px]"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
-                <p className="border-t border-slate/35 px-4 py-3 text-xs text-slate">
-                  Kpone Industrial Area · Tema · Approximate location for orientation only
+                <p className="border-t border-graphite/10 px-4 py-3 text-xs text-slate">
+                  Kpone Industrial Area, Tema. Approximate location for orientation only.
                 </p>
               </div>
             </div>
