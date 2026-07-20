@@ -31,16 +31,21 @@ export function Contact() {
 
               <p className="mt-8 text-sm leading-relaxed text-slate">
                 For commercial enquiries, offtake, or visits to the Tema plant, write to the address
-                above or use the mail link below. This site does not collect form submissions.
+                above, use the product enquiry tool below, or email us directly.
               </p>
 
-              <a
-                href={`mailto:${company.email}?subject=Enquiry%20-%20Western%20Steel%20and%20Forgings%20Limited`}
-                className="btn-primary mt-8"
-              >
-                Email {company.email}
-                <IconArrow className="ml-2 h-4 w-4" />
-              </a>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={`mailto:${company.email}?subject=Enquiry%20-%20Western%20Steel%20and%20Forgings%20Limited`}
+                  className="btn-primary"
+                >
+                  Email {company.email}
+                  <IconArrow className="ml-2 h-4 w-4" />
+                </a>
+                <a href="#enquiry" className="btn-secondary">
+                  Product enquiry
+                </a>
+              </div>
             </div>
 
             <div className="lg:col-span-7">

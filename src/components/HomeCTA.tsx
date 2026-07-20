@@ -32,8 +32,8 @@ export function HomeCTA() {
               registered office.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <Link to="/contact" className="btn-primary">
-                Get in touch
+              <Link to="/contact#enquiry" className="btn-primary">
+                Request supply
                 <IconArrow />
               </Link>
               <Link to="/process" className="btn-ghost-light">

@@ -12,6 +12,10 @@ export const siteImages = {
     src: '/images/furnace.jpg',
     alt: 'High-temperature industrial furnace with glowing steel heat',
   },
+  homeProcess: {
+    src: '/images/image2.jpg',
+    alt: 'Hot steel beams glowing on the rolling mill line',
+  },
   productsBanner: {
     src: '/images/metal-finishing.jpg',
     alt: 'Worker finishing metal with protective gloves and sparks',
@@ -21,8 +25,8 @@ export const siteImages = {
     alt: 'Forged steel grinding balls for gold mining',
   },
   productRods: {
-    src: '/images/construction-rods.jpg',
-    alt: 'Worker securing steel reinforcement rods on a construction site',
+    src: '/images/shutterstock_1122707477.jpg',
+    alt: 'Stacked steel reinforcement bars on a construction site',
   },
   productOxygen: {
     src: '/images/steel-pipelines-cables-plant.jpg',
@@ -33,8 +37,8 @@ export const siteImages = {
     alt: 'Industrial steel mill with molten metal pour and heavy rolling equipment',
   },
   productPlanned: {
-    src: '/images/plant-floor.jpg',
-    alt: 'Engineer at a precision workstation on an industrial plant floor',
+    src: '/images/image3.jpg',
+    alt: 'Cut ends of steel bars stocked in the plant',
   },
   process: {
     src: '/images/metallurgy-collage.jpg',
@@ -45,8 +49,8 @@ export const siteImages = {
     alt: 'Illustrated composition of steel production and foundry work',
   },
   markets: {
-    src: '/images/steel-process.jpg',
-    alt: 'Illustrated metallurgical plant, workers, and finished steel products',
+    src: '/images/image4.jpg',
+    alt: 'Chart of global steel use by sector, led by building and infrastructure',
   },
   leadership: {
     src: '/images/team-collaboration.jpg',

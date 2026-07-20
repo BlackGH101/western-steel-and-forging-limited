@@ -1,5 +1,7 @@
 import { company } from '../data/content'
 import { siteImages } from '../data/images'
+import { CircularSteel } from './CircularSteel'
+import { CompanyTimeline } from './CompanyTimeline'
 import { MissionVisionValues } from './MissionVisionValues'
 import { SectionReveal } from './SectionReveal'
 
@@ -70,6 +72,8 @@ export function About() {
           </SectionReveal>
         </div>
       </section>
+      <CompanyTimeline />
+      <CircularSteel />
       <MissionVisionValues />
     </>
   )
