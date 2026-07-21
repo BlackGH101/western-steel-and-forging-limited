@@ -92,7 +92,7 @@ export const buyerFaq = [
   {
     question: 'How do I request a quote or place an order?',
     answer:
-      'Use the product enquiry tool on this page or email info@wsfl.com.gh with the product line, sizes, estimated volume, and delivery location. Commercial teams respond to offtake and supply enquiries.',
+      'Use the product enquiry tool on this page or email info@wsflghana.com with the product line, sizes, estimated volume, and delivery location. Commercial teams respond to offtake and supply enquiries.',
   },
   {
     question: 'Why choose local forged balls over imports?',
@@ -102,7 +102,7 @@ export const buyerFaq = [
   {
     question: 'Can I visit the plant?',
     answer:
-      'Commercial visits can be arranged by writing to info@wsfl.com.gh with your company name, purpose of visit, and preferred dates.',
+      'Commercial visits can be arranged by writing to info@wsflghana.com with your company name, purpose of visit, and preferred dates.',
   },
 ] as const
 

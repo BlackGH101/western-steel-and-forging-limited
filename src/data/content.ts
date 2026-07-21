@@ -15,7 +15,7 @@ export const company = {
   tagline: "Ghana's integrated steel rolling and forging plant, since 2004",
   founded: 2004,
   location: 'Tema, Ghana',
-  email: 'info@wsfl.com.gh',
+  email: 'info@wsflghana.com',
   phone: '',
   address: {
     line1: 'Plot No. F, Kpone Industrial Area',

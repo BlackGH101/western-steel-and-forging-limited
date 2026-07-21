@@ -33,12 +33,12 @@ export const siteImages = {
     alt: 'Steel pipelines and cable runs across an industrial plant',
   },
   productDrums: {
-    src: '/images/hero-mill.jpg',
-    alt: 'Industrial steel mill with molten metal pour and heavy rolling equipment',
+    src: '/images/steel-drum.jpg',
+    alt: 'Industrial steel drum for product storage and transport',
   },
   productPlanned: {
-    src: '/images/image3.jpg',
-    alt: 'Cut ends of steel bars stocked in the plant',
+    src: '/images/tmt-bars.jpg',
+    alt: 'High-tensile TMT reinforcement bars',
   },
   process: {
     src: '/images/metallurgy-collage.jpg',
